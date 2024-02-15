@@ -39,4 +39,6 @@
 * eplus不用挂代理，有可能出问题的地方大概也就auth验证那里，出问题的话Cookie和Auth多刷新几次试试。
 * **以及cookie一小时刷新一次，其他两个字符串都不需要重新获取，记得开个记事本记录一下就行。**
 * 程序跑完就下完了，文件夹结构最好不要动，eplus_drm_archive_download.exe、N_m3u8DL-RE.exe、mp4decrypt.exe、ffmpeg.exe和运行我.bat这五个一定要在同一个文件夹内。
-* 最后合并音视频文件时如果出现大量WARN报错，检查mp4decrypt.exe的路径是否存在非英文字符或者mp4decrypt.exe的依赖是否正常安装
+* 最后合并音视频文件时如果出现大量WARN报错（如下图），检查mp4decrypt.exe的路径是否存在非英文字符或者mp4decrypt.exe的依赖是否正常安装
+![f325c1fe9adc267bd18b29490d421680](https://github.com/AlanWanco/Simple_Eplus_DRM_DL/assets/45628961/2d161d6c-d187-41c6-ad7e-606642dfa242)
+
