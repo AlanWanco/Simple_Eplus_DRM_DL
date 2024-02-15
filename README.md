@@ -1,7 +1,9 @@
 # Simple_Eplus_DRM_DL
 一个配合N_m3u8DL-RE简单下载eplusDRM视频的工具
 ## 快速开始
-```eplus_drm_archive_download.exe --url-mpd <mpd_url> --cookie-mpd <Cookie> --auth <auth_token>```
+```
+eplus_drm_archive_download.exe --url-mpd <mpd_url> --cookie-mpd <Cookie> --auth <auth_token>
+```
 ## Release内bat脚本用法：
 打开`运行我.bat`依次输入`mpd地址`、`mpd对应的cookie`和`auth验证token`
 ## 注意！！：
