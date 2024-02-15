@@ -37,7 +37,7 @@ eplus_drm_archive_download.exe --url-mpd <mpd_url> --cookie-mpd <Cookie> --auth 
 
 10. 回到最开头，打开运行我.bat，分别输入`mpd地址`、`mpd对应的cookie`和`auth验证token`
 # Tips
-* cookie和验证token都很长，可以找个记事本记一下，复制的时候注意一下前后不要带空格）
+* cookie和验证token都很长，可以找个记事本记一下，复制的时候注意一下前后不要带空格，cookie结尾不要带分号
 * eplus不用挂代理，有可能出问题的地方大概也就auth验证那里，出问题的话Cookie和Auth多刷新几次试试。
 * **以及cookie一小时刷新一次，其他两个字符串都不需要重新获取，记得开个记事本记录一下就行。**
 * 程序跑完就下完了，文件夹结构最好不要动，eplus_drm_archive_download.exe、N_m3u8DL-RE.exe、mp4decrypt.exe、ffmpeg.exe和运行我.bat这五个一定要在同一个文件夹内。
