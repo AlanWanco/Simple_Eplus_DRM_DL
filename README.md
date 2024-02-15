@@ -1,14 +1,14 @@
 # Simple_Eplus_DRM_DL
 一个配合N_m3u8DL-RE简单下载eplusDRM视频的工具
-# 快速开始
+## 快速开始
 ```eplus_drm_archive_download.exe --url-mpd <mpd_url> --cookie-mpd <Cookie> --auth <auth_token>```
-# Release内bat脚本用法：
+## Release内bat脚本用法：
 打开`运行我.bat`依次输入`mpd地址`、`mpd对应的cookie`和`auth验证token`
-# 注意！！：
+## 注意！！：
 * 需要提前安装好微软的vc库才能正常使用mp4decrypt，N_m3u8DL-RE也有一些环境要求
 * 解压路径里不能有非英文字符否则解码mp4decrypt可能会报错
 
-# `mpd地址`、`mpd对应的cookie`和`auth验证token`的获取方法：
+## `mpd地址`、`mpd对应的cookie`和`auth验证token`的获取方法：
 1. 用记事本打开`find_mpd.js`，全部复制内容
 2. 用edge打开武士道系live的eplus网页，按F12进入开发者工具，在上面一行菜单栏里寻找`控制台`栏，点进去
 3. 随便找个地方右键`清除控制台`，然后输入脚本内容的时候可能会要你输入一行文字才能让你粘贴脚本内容，输入就行
