@@ -69,7 +69,7 @@ def find_base(match, text):
 
 def mpd_download(file, path, cookies_mpd, url_mpd):
     print('=======调用N_m3u8DL-RE下载回放=======')
-    command = fr'.\N_m3u8DL-RE --save-name "{file}" --save-dir "{path}" --download-retry-count 5 --auto-select --thread-count 16 --mux-after-done format=mp4 --check-segments-count --ffmpeg-binary-path .\ffmpeg.exe -H "Cookie: {cookies_mpd}" --del-after-done --key "{mpd_key}" --decryption-binary-path .\mp4decrypt.exe {url_mpd}'
+    command = fr'.\N_m3u8DL-RE --save-name "{file}" --save-dir "{path}" --download-retry-count 5 --auto-select --thread-count 16 --mux-after-done format=mp4 --check-segments-count --ffmpeg-binary-path .\ffmpeg.exe -H "Cookie: {cookies_mpd}" -mt --del-after-done --key "{mpd_key}" --decryption-binary-path .\mp4decrypt.exe "{url_mpd}"'
     # print(command)
     subprocess.call(command)
 
