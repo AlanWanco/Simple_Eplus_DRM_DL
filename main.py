@@ -40,7 +40,7 @@ def get_key():
         keys = cdm.get_keys(session_id)
         if len(keys) > 1:
             second_key = keys[1]
-            key_fin = second_key.key.hex()
+            key_fin = second_key.kid.hex +':'+ second_key.key.hex()
             print("获得key值：", key_fin)
     else:
         print('token已过期！')
