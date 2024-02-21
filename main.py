@@ -1,5 +1,8 @@
 import base64, re, requests, os, argparse, subprocess
 from datetime import datetime
+from pywidevine.cdm import Cdm
+from pywidevine.device import Device
+from pywidevine.pssh import PSSH
 
 parser = argparse.ArgumentParser(description='eplusDRM下载')
 parser.add_argument('--url-mpd', help='推流的mpd地址', required=True, type=str)# args.url_mpd
@@ -24,14 +27,26 @@ MATCH_UUID = r"""cenc:default_KID=\"(?P<mpd_url>.*?)\""""
 formatted_datetime = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 path = os.getcwd()
 file = f'eplus_drm_{formatted_datetime}'
+device = Device.load(r".\google_aosp_on_ia_emulator_14.0.0_9389cec2_4464_l3.wvd")
 
 def get_key():
-    r = requests.post(api_url, headers=headers,json={"license":license_url,"pssh":pssh}).json()
-    # print(r)
-    key = r['keys'][0]['key'].split(':')[1]
-    mpd_key = r['keys'][0]['key']
-    print("获得key：", key, "获得KID:KEY：", mpd_key)
-    return mpd_key
+    pssh_cdm = PSSH(pssh)
+    cdm = Cdm.from_device(device)
+    session_id = cdm.open()
+    challenge = cdm.get_license_challenge(session_id, pssh_cdm)
+    licence = requests.post(license_url, headers = headers, data=challenge)
+    if licence.status_code == 200:
+        cdm.parse_license(session_id, licence.content)
+        keys = cdm.get_keys(session_id)
+        if len(keys) > 1:
+            second_key = keys[1]
+            key_fin = second_key.key.hex()
+            print("获得key值：", key_fin)
+    else:
+        print('token已过期！')
+    cdm.close(session_id)
+    if key_fin:
+        return key_fin
 
 def get_pssh(keyId):
 	array_of_bytes = bytearray(b'\x00\x00\x008pssh\x00\x00\x00\x00')
